@@ -22,9 +22,8 @@ fn main() -> std::io::Result<()> {
 
 fn process_game(words: &Vec<&str>, max_guesses: u32) {
     let answer = words[rand::thread_rng().gen_range(0, words.len())];
-    let mut found = false;
     let mut guesses = 0;
-    while guesses < 5 && !found {
+    while guesses < max_guesses {
         print_choices(words);
 
         println!("Please choose number from 0 to {}", words.len()-1);
